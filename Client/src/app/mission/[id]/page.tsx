@@ -169,7 +169,7 @@ export default function MissionPage() {
           <Icons.Rocket className="w-10 h-10 text-gray-500" />
         </div>
         <h1 className="text-2xl font-bold">Mission Not Found</h1>
-        <p className="text-gray-500">The mission you're looking for doesn't exist or has been removed.</p>
+        <p className="text-gray-500">The mission you&apos;re looking for doesn&apos;t exist or has been removed.</p>
         <Link href="/dashboard" className="mt-2 px-6 py-3 rounded-xl bg-gradient-to-r from-violet-500 to-cyan-500 text-white font-medium hover:opacity-90 transition-all">
           ← Back to Dashboard
         </Link>

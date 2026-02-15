@@ -1,0 +1,589 @@
+nohup: ignoring input
+Cron Jobs Scheduled
+MongoDB Connected
+Redis Connected
+Server running on port 5001
+[0mGET / [32m200[0m 3.905 ms - 24[0m
+[0mGET / [32m200[0m 0.580 ms - 24[0m
+[0mGET /api/missions [32m200[0m 29.960 ms - 4603[0m
+[0mGET / [32m200[0m 0.284 ms - 24[0m
+[0mGET /api/missions [32m200[0m 4.726 ms - 4603[0m
+[0mGET /api/missions [32m200[0m 15.237 ms - 4603[0m
+[0mGET /api/missions [36m304[0m 10.211 ms - -[0m
+[0mGET /api/missions/organizations [32m200[0m 29.410 ms - 37[0m
+[0mGET /api/missions/organizations [36m304[0m 2.973 ms - -[0m
+[0mGET /api/nasa/dashboard [32m200[0m 47.613 ms - 6080[0m
+[0mGET /api/nasa/dashboard [32m200[0m 19.380 ms - 6080[0m
+[0mGET /api/missions/organization/ISRO [32m200[0m 8.291 ms - 1297[0m
+[0mGET /api/missions/organization/ESA [32m200[0m 2.842 ms - 646[0m
+[0mGET /api/missions [36m304[0m 10.497 ms - -[0m
+[0mGET /api/missions/organizations [36m304[0m 7.515 ms - -[0m
+[0mGET /api/nasa/dashboard [32m200[0m 26.131 ms - 6080[0m
+[0mGET /api/missions [36m304[0m 4.748 ms - -[0m
+[0mGET /api/missions/organizations [36m304[0m 4.545 ms - -[0m
+[0mGET /api/nasa/dashboard [32m200[0m 14.391 ms - 6080[0m
+[0mGET /api/missions [36m304[0m 3.686 ms - -[0m
+[0mGET /api/missions/organizations [36m304[0m 3.378 ms - -[0m
+[0mGET /api/nasa/dashboard [32m200[0m 19.826 ms - 6080[0m
+[0mGET /api/missions [36m304[0m 7.909 ms - -[0m
+[0mGET /api/missions/organizations [36m304[0m 5.871 ms - -[0m
+[0mGET /api/missions [36m304[0m 5.858 ms - -[0m
+[0mGET /api/missions/organizations [36m304[0m 4.550 ms - -[0m
+[0mGET /api/nasa/dashboard [32m200[0m 23.071 ms - 6080[0m
+[0mGET /api/nasa/dashboard [32m200[0m 14.958 ms - 6080[0m
+[0mGET /api/missions [36m304[0m 13.275 ms - -[0m
+[0mGET /api/missions/organizations [36m304[0m 10.925 ms - -[0m
+[0mGET /api/nasa/dashboard [32m200[0m 42.756 ms - 6080[0m
+Running Cron Job: Fetch Hazardous Asteroids
+Running Cron Job: Fetch Solar Weather
+Fetching Solar Weather for 2026-02-14
+Running Cron Job: Update Satellite TLEs
+Fetching Satellite TLE Data...
+Fetching Asteroids from 2026-02-14 to 2026-02-21
+Error fetching solar weather: AxiosError: Request failed with status code 429
+    at settle (/home/faraday/Desktop/SR-16-Invictus/server/node_modules/axios/lib/core/settle.js:19:12)
+    at IncomingMessage.handleStreamEnd (/home/faraday/Desktop/SR-16-Invictus/server/node_modules/axios/lib/adapters/http.js:798:11)
+    at IncomingMessage.emit (node:events:529:35)
+    at IncomingMessage.emit (node:domain:489:12)
+    at endReadableNT (node:internal/streams/readable:1400:12)
+    at processTicksAndRejections (node:internal/process/task_queues:82:21)
+    at Axios.request (/home/faraday/Desktop/SR-16-Invictus/server/node_modules/axios/lib/core/Axios.js:46:41)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async fetchSolarWeather (/home/faraday/Desktop/SR-16-Invictus/server/src/services/nasaService.ts:77:26)
+    at async /home/faraday/Desktop/SR-16-Invictus/server/src/jobs/cronJobs.ts:13:5
+    at async Timeout._onTimeout (/home/faraday/Desktop/SR-16-Invictus/server/node_modules/node-cron/src/scheduler/runner.ts:100:30) {
+  isAxiosError: true,
+  code: 'ERR_BAD_REQUEST',
+  config: {
+    transitional: {
+      silentJSONParsing: true,
+      forcedJSONParsing: true,
+      clarifyTimeoutError: false,
+      legacyInterceptorReqResOrdering: true
+    },
+    adapter: [ 'xhr', 'http', 'fetch' ],
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    timeout: 0,
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: -1,
+    maxBodyLength: -1,
+    env: { FormData: [Function], Blob: [class Blob] },
+    validateStatus: [Function: validateStatus],
+    headers: Object [AxiosHeaders] {
+      Accept: 'application/json, text/plain, */*',
+      'Content-Type': undefined,
+      'User-Agent': 'axios/1.13.5',
+      'Accept-Encoding': 'gzip, compress, deflate, br'
+    },
+    params: { startDate: '2026-02-14', api_key: 'DEMO_KEY' },
+    method: 'get',
+    url: 'https://api.nasa.gov/DONKI/GST',
+    allowAbsoluteUrls: true,
+    data: undefined
+  },
+  request: <ref *1> ClientRequest {
+    _events: [Object: null prototype] {
+      abort: [Function (anonymous)],
+      aborted: [Function (anonymous)],
+      connect: [Function (anonymous)],
+      error: [Function (anonymous)],
+      socket: [Function (anonymous)],
+      timeout: [Function (anonymous)],
+      finish: [Function: requestOnFinish]
+    },
+    _eventsCount: 7,
+    _maxListeners: undefined,
+    outputData: [],
+    outputSize: 0,
+    writable: true,
+    destroyed: false,
+    _last: true,
+    chunkedEncoding: false,
+    shouldKeepAlive: false,
+    maxRequestsOnConnectionReached: false,
+    _defaultKeepAlive: true,
+    useChunkedEncodingByDefault: false,
+    sendDate: false,
+    _removedConnection: false,
+    _removedContLen: false,
+    _removedTE: false,
+    strictContentLength: false,
+    _contentLength: 0,
+    _hasBody: true,
+    _trailer: '',
+    finished: true,
+    _headerSent: true,
+    _closed: false,
+    socket: TLSSocket {
+      _tlsOptions: [Object],
+      _secureEstablished: true,
+      _securePending: false,
+      _newSessionPending: false,
+      _controlReleased: true,
+      secureConnecting: false,
+      _SNICallback: null,
+      servername: 'api.nasa.gov',
+      alpnProtocol: false,
+      authorized: true,
+      authorizationError: null,
+      encrypted: true,
+      _events: [Object: null prototype],
+      _eventsCount: 10,
+      connecting: false,
+      _hadError: false,
+      _parent: null,
+      _host: 'api.nasa.gov',
+      _closeAfterHandlingError: false,
+      _readableState: [ReadableState],
+      _maxListeners: undefined,
+      _writableState: [WritableState],
+      allowHalfOpen: false,
+      _sockname: null,
+      _pendingData: null,
+      _pendingEncoding: '',
+      server: undefined,
+      _server: null,
+      ssl: [TLSWrap],
+      _requestCert: true,
+      _rejectUnauthorized: true,
+      parser: null,
+      _httpMessage: [Circular *1],
+      timeout: 0,
+      [Symbol(alpncallback)]: null,
+      [Symbol(res)]: [TLSWrap],
+      [Symbol(verified)]: true,
+      [Symbol(pendingSession)]: null,
+      [Symbol(async_id_symbol)]: 22691,
+      [Symbol(kHandle)]: [TLSWrap],
+      [Symbol(lastWriteQueueSize)]: 0,
+      [Symbol(timeout)]: null,
+      [Symbol(kBuffer)]: null,
+      [Symbol(kBufferCb)]: null,
+      [Symbol(kBufferGen)]: null,
+      [Symbol(kCapture)]: false,
+      [Symbol(kSetNoDelay)]: false,
+      [Symbol(kSetKeepAlive)]: true,
+      [Symbol(kSetKeepAliveInitialDelay)]: 60,
+      [Symbol(kBytesRead)]: 0,
+      [Symbol(kBytesWritten)]: 0,
+      [Symbol(connect-options)]: [Object]
+    },
+    _header: 'GET /DONKI/GST?startDate=2026-02-14&api_key=DEMO_KEY HTTP/1.1\r\n' +
+      'Accept: application/json, text/plain, */*\r\n' +
+      'User-Agent: axios/1.13.5\r\n' +
+      'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+      'Host: api.nasa.gov\r\n' +
+      'Connection: close\r\n' +
+      '\r\n',
+    _keepAliveTimeout: 0,
+    _onPendingData: [Function: nop],
+    agent: Agent {
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      defaultPort: 443,
+      protocol: 'https:',
+      options: [Object: null prototype],
+      requests: [Object: null prototype] {},
+      sockets: [Object: null prototype],
+      freeSockets: [Object: null prototype] {},
+      keepAliveMsecs: 1000,
+      keepAlive: false,
+      maxSockets: Infinity,
+      maxFreeSockets: 256,
+      scheduling: 'lifo',
+      maxTotalSockets: Infinity,
+      totalSocketCount: 3,
+      maxCachedSessions: 100,
+      _sessionCache: [Object],
+      [Symbol(kCapture)]: false
+    },
+    socketPath: undefined,
+    method: 'GET',
+    maxHeaderSize: undefined,
+    insecureHTTPParser: undefined,
+    joinDuplicateHeaders: undefined,
+    path: '/DONKI/GST?startDate=2026-02-14&api_key=DEMO_KEY',
+    _ended: true,
+    res: IncomingMessage {
+      _readableState: [ReadableState],
+      _events: [Object: null prototype],
+      _eventsCount: 4,
+      _maxListeners: undefined,
+      socket: [TLSSocket],
+      httpVersionMajor: 1,
+      httpVersionMinor: 1,
+      httpVersion: '1.1',
+      complete: true,
+      rawHeaders: [Array],
+      rawTrailers: [],
+      joinDuplicateHeaders: undefined,
+      aborted: false,
+      upgrade: false,
+      url: '',
+      method: null,
+      statusCode: 429,
+      statusMessage: 'Too Many Requests',
+      client: [TLSSocket],
+      _consuming: true,
+      _dumped: false,
+      req: [Circular *1],
+      responseUrl: 'https://api.nasa.gov/DONKI/GST?startDate=2026-02-14&api_key=DEMO_KEY',
+      redirects: [],
+      [Symbol(kCapture)]: false,
+      [Symbol(kHeaders)]: [Object],
+      [Symbol(kHeadersCount)]: 28,
+      [Symbol(kTrailers)]: null,
+      [Symbol(kTrailersCount)]: 0
+    },
+    aborted: false,
+    timeoutCb: null,
+    upgradeOrConnect: false,
+    parser: null,
+    maxHeadersCount: null,
+    reusedSocket: false,
+    host: 'api.nasa.gov',
+    protocol: 'https:',
+    _redirectable: Writable {
+      _writableState: [WritableState],
+      _events: [Object: null prototype],
+      _eventsCount: 3,
+      _maxListeners: undefined,
+      _options: [Object],
+      _ended: true,
+      _ending: true,
+      _redirectCount: 0,
+      _redirects: [],
+      _requestBodyLength: 0,
+      _requestBodyBuffers: [],
+      _onNativeResponse: [Function (anonymous)],
+      _currentRequest: [Circular *1],
+      _currentUrl: 'https://api.nasa.gov/DONKI/GST?startDate=2026-02-14&api_key=DEMO_KEY',
+      _timeout: null,
+      [Symbol(kCapture)]: false
+    },
+    [Symbol(kCapture)]: false,
+    [Symbol(kBytesWritten)]: 0,
+    [Symbol(kNeedDrain)]: false,
+    [Symbol(corked)]: 0,
+    [Symbol(kOutHeaders)]: [Object: null prototype] {
+      accept: [Array],
+      'user-agent': [Array],
+      'accept-encoding': [Array],
+      host: [Array]
+    },
+    [Symbol(errored)]: null,
+    [Symbol(kHighWaterMark)]: 16384,
+    [Symbol(kRejectNonStandardBodyWrites)]: false,
+    [Symbol(kUniqueHeaders)]: null
+  },
+  response: {
+    status: 429,
+    statusText: 'Too Many Requests',
+    headers: Object [AxiosHeaders] {
+      date: 'Sat, 14 Feb 2026 18:30:06 GMT',
+      'content-type': 'application/json',
+      'transfer-encoding': 'chunked',
+      connection: 'close',
+      'access-control-allow-origin': '*',
+      'retry-after': '19795',
+      'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
+      'x-api-umbrella-request-id': 'csbllcnvlbbj5nt8abdg',
+      'x-cache': 'MISS',
+      'x-content-type-options': 'nosniff',
+      'x-ratelimit-limit': '10',
+      'x-ratelimit-remaining': '0',
+      'x-vcap-request-id': '21e58cd2-dcd9-4439-49df-031c3e303bfe',
+      'x-frame-options': 'DENY'
+    },
+    config: {
+      transitional: [Object],
+      adapter: [Array],
+      transformRequest: [Array],
+      transformResponse: [Array],
+      timeout: 0,
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: -1,
+      maxBodyLength: -1,
+      env: [Object],
+      validateStatus: [Function: validateStatus],
+      headers: [Object [AxiosHeaders]],
+      params: [Object],
+      method: 'get',
+      url: 'https://api.nasa.gov/DONKI/GST',
+      allowAbsoluteUrls: true,
+      data: undefined
+    },
+    request: <ref *1> ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: false,
+      _last: true,
+      chunkedEncoding: false,
+      shouldKeepAlive: false,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: false,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: 0,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: false,
+      socket: [TLSSocket],
+      _header: 'GET /DONKI/GST?startDate=2026-02-14&api_key=DEMO_KEY HTTP/1.1\r\n' +
+        'Accept: application/json, text/plain, */*\r\n' +
+        'User-Agent: axios/1.13.5\r\n' +
+        'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+        'Host: api.nasa.gov\r\n' +
+        'Connection: close\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'GET',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      joinDuplicateHeaders: undefined,
+      path: '/DONKI/GST?startDate=2026-02-14&api_key=DEMO_KEY',
+      _ended: true,
+      res: [IncomingMessage],
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'api.nasa.gov',
+      protocol: 'https:',
+      _redirectable: [Writable],
+      [Symbol(kCapture)]: false,
+      [Symbol(kBytesWritten)]: 0,
+      [Symbol(kNeedDrain)]: false,
+      [Symbol(corked)]: 0,
+      [Symbol(kOutHeaders)]: [Object: null prototype],
+      [Symbol(errored)]: null,
+      [Symbol(kHighWaterMark)]: 16384,
+      [Symbol(kRejectNonStandardBodyWrites)]: false,
+      [Symbol(kUniqueHeaders)]: null
+    },
+    data: { error: [Object] }
+  },
+  status: 429
+}
+Error fetching asteroids: AxiosError: getaddrinfo EAI_AGAIN api.nasa.gov
+    at Function.from (/home/faraday/Desktop/SR-16-Invictus/server/node_modules/axios/lib/core/AxiosError.js:7:28)
+    at RedirectableRequest.handleRequestError (/home/faraday/Desktop/SR-16-Invictus/server/node_modules/axios/lib/adapters/http.js:820:25)
+    at RedirectableRequest.emit (node:events:517:28)
+    at RedirectableRequest.emit (node:domain:489:12)
+    at ClientRequest.eventHandlers.<computed> (/home/faraday/Desktop/SR-16-Invictus/server/node_modules/follow-redirects/index.js:49:24)
+    at ClientRequest.emit (node:events:517:28)
+    at ClientRequest.emit (node:domain:489:12)
+    at TLSSocket.socketErrorListener (node:_http_client:501:9)
+    at TLSSocket.emit (node:events:517:28)
+    at TLSSocket.emit (node:domain:489:12)
+    at Axios.request (/home/faraday/Desktop/SR-16-Invictus/server/node_modules/axios/lib/core/Axios.js:46:41)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async fetchHazardousAsteroids (/home/faraday/Desktop/SR-16-Invictus/server/src/services/nasaService.ts:29:22)
+    at async /home/faraday/Desktop/SR-16-Invictus/server/src/jobs/cronJobs.ts:7:3
+    at async Timeout._onTimeout (/home/faraday/Desktop/SR-16-Invictus/server/node_modules/node-cron/src/scheduler/runner.ts:100:30) {
+  isAxiosError: true,
+  code: 'EAI_AGAIN',
+  config: {
+    transitional: {
+      silentJSONParsing: true,
+      forcedJSONParsing: true,
+      clarifyTimeoutError: false,
+      legacyInterceptorReqResOrdering: true
+    },
+    adapter: [ 'xhr', 'http', 'fetch' ],
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    timeout: 0,
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: -1,
+    maxBodyLength: -1,
+    env: { FormData: [Function], Blob: [class Blob] },
+    validateStatus: [Function: validateStatus],
+    headers: Object [AxiosHeaders] {
+      Accept: 'application/json, text/plain, */*',
+      'Content-Type': undefined,
+      'User-Agent': 'axios/1.13.5',
+      'Accept-Encoding': 'gzip, compress, deflate, br'
+    },
+    params: {
+      start_date: '2026-02-14',
+      end_date: '2026-02-21',
+      api_key: 'DEMO_KEY'
+    },
+    method: 'get',
+    url: 'https://api.nasa.gov/neo/rest/v1/feed',
+    allowAbsoluteUrls: true,
+    data: undefined
+  },
+  request: <ref *1> Writable {
+    _writableState: WritableState {
+      objectMode: false,
+      highWaterMark: 16384,
+      finalCalled: false,
+      needDrain: false,
+      ending: false,
+      ended: false,
+      finished: false,
+      destroyed: false,
+      decodeStrings: true,
+      defaultEncoding: 'utf8',
+      length: 0,
+      writing: false,
+      corked: 0,
+      sync: true,
+      bufferProcessing: false,
+      onwrite: [Function: bound onwrite],
+      writecb: null,
+      writelen: 0,
+      afterWriteTickInfo: null,
+      buffered: [],
+      bufferedIndex: 0,
+      allBuffers: true,
+      allNoop: true,
+      pendingcb: 0,
+      constructed: true,
+      prefinished: false,
+      errorEmitted: false,
+      emitClose: true,
+      autoDestroy: true,
+      errored: null,
+      closed: false,
+      closeEmitted: false,
+      [Symbol(kOnFinished)]: []
+    },
+    _events: [Object: null prototype] {
+      response: [Function: handleResponse],
+      error: [Function: handleRequestError],
+      socket: [Array]
+    },
+    _eventsCount: 3,
+    _maxListeners: undefined,
+    _options: {
+      maxRedirects: 21,
+      maxBodyLength: Infinity,
+      protocol: 'https:',
+      path: '/neo/rest/v1/feed?start_date=2026-02-14&end_date=2026-02-21&api_key=DEMO_KEY',
+      method: 'GET',
+      headers: [Object: null prototype],
+      agents: [Object],
+      auth: undefined,
+      family: undefined,
+      beforeRedirect: [Function: dispatchBeforeRedirect],
+      beforeRedirects: [Object],
+      http2Options: undefined,
+      hostname: 'api.nasa.gov',
+      port: '',
+      agent: undefined,
+      nativeProtocols: [Object],
+      pathname: '/neo/rest/v1/feed',
+      search: '?start_date=2026-02-14&end_date=2026-02-21&api_key=DEMO_KEY'
+    },
+    _ended: true,
+    _ending: true,
+    _redirectCount: 0,
+    _redirects: [],
+    _requestBodyLength: 0,
+    _requestBodyBuffers: [],
+    _onNativeResponse: [Function (anonymous)],
+    _currentRequest: ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: false,
+      _last: true,
+      chunkedEncoding: false,
+      shouldKeepAlive: false,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: false,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: 0,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: false,
+      socket: [TLSSocket],
+      _header: 'GET /neo/rest/v1/feed?start_date=2026-02-14&end_date=2026-02-21&api_key=DEMO_KEY HTTP/1.1\r\n' +
+        'Accept: application/json, text/plain, */*\r\n' +
+        'User-Agent: axios/1.13.5\r\n' +
+        'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+        'Host: api.nasa.gov\r\n' +
+        'Connection: close\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'GET',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      joinDuplicateHeaders: undefined,
+      path: '/neo/rest/v1/feed?start_date=2026-02-14&end_date=2026-02-21&api_key=DEMO_KEY',
+      _ended: false,
+      res: null,
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'api.nasa.gov',
+      protocol: 'https:',
+      _redirectable: [Circular *1],
+      [Symbol(kCapture)]: false,
+      [Symbol(kBytesWritten)]: 0,
+      [Symbol(kNeedDrain)]: false,
+      [Symbol(corked)]: 0,
+      [Symbol(kOutHeaders)]: [Object: null prototype],
+      [Symbol(errored)]: null,
+      [Symbol(kHighWaterMark)]: 16384,
+      [Symbol(kRejectNonStandardBodyWrites)]: false,
+      [Symbol(kUniqueHeaders)]: null
+    },
+    _currentUrl: 'https://api.nasa.gov/neo/rest/v1/feed?start_date=2026-02-14&end_date=2026-02-21&api_key=DEMO_KEY',
+    _timeout: null,
+    [Symbol(kCapture)]: false
+  },
+  cause: Error: getaddrinfo EAI_AGAIN api.nasa.gov
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:107:26) {
+    errno: -3001,
+    code: 'EAI_AGAIN',
+    syscall: 'getaddrinfo',
+    hostname: 'api.nasa.gov'
+  }
+}
+Satellite TLE data updated.
+[0mGET /api/missions [36m304[0m 4.033 ms - -[0m
+[0mGET /api/missions/organizations [36m304[0m 4.000 ms - -[0m
+[0mGET /api/nasa/dashboard [32m200[0m 27.424 ms - 6080[0m
+[0mGET /api/missions [36m304[0m 4.741 ms - -[0m
+[0mGET /api/missions/organizations [36m304[0m 3.647 ms - -[0m
+[0mGET /api/nasa/dashboard [32m200[0m 28.729 ms - 6080[0m

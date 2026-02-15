@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  # MongoDB - Database
+  mongo:
+    image: mongo:latest
+    container_name: astroview_mongo
+    restart: always
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  # Redis - Caching & Queues
+  redis:
+    image: redis:alpine
+    container_name: astroview_redis
+    restart: always
+    ports:
+      - "6379:6379"
+
+volumes:
+  mongo_data:

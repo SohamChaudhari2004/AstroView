@@ -1,0 +1,14 @@
+node_modules
+.next
+.git
+.gitignore
+README.md
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env*.local
+.vercel
+build_log.txt
+build_log_2.txt
+lint_log.txt
+*.md

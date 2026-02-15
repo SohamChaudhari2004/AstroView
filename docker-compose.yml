@@ -1,0 +1,107 @@
+version: '3.8'
+
+services:
+  # MongoDB - Database
+  mongo:
+    image: mongo:latest
+    container_name: astroview_mongo
+    restart: always
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongo_data:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=astroview
+    networks:
+      - astroview-network
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis - Caching & Queues
+  redis:
+    image: redis:alpine
+    container_name: astroview_redis
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - astroview-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Backend Server (Node.js/Express)
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: astroview_server
+    restart: always
+    ports:
+      - "5001:5001"
+    depends_on:
+      mongo:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      - NODE_ENV=development
+      - PORT=5001
+      - MONGODB_URI=mongodb://mongo:27017/astroview
+      - REDIS_URL=redis://redis:6379
+      - MISTRAL_API_KEY=${MISTRAL_API_KEY}
+      - NASA_API_KEY=${NASA_API_KEY}
+      - JWT_SECRET=${JWT_SECRET}
+      - FIREBASE_TYPE=${FIREBASE_TYPE}
+      - FIREBASE_PROJECT_ID=${FIREBASE_PROJECT_ID}
+      - FIREBASE_PRIVATE_KEY_ID=${FIREBASE_PRIVATE_KEY_ID}
+      - FIREBASE_PRIVATE_KEY=${FIREBASE_PRIVATE_KEY}
+      - FIREBASE_CLIENT_EMAIL=${FIREBASE_CLIENT_EMAIL}
+      - FIREBASE_CLIENT_ID=${FIREBASE_CLIENT_ID}
+      - FIREBASE_AUTH_URI=${FIREBASE_AUTH_URI}
+      - FIREBASE_TOKEN_URI=${FIREBASE_TOKEN_URI}
+      - FIREBASE_AUTH_PROVIDER_CERT_URL=${FIREBASE_AUTH_PROVIDER_CERT_URL}
+      - FIREBASE_CLIENT_CERT_URL=${FIREBASE_CLIENT_CERT_URL}
+    networks:
+      - astroview-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:5001/api/test-route"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Frontend Client (Next.js)
+  client:
+    build:
+      context: ./Client
+      dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_API_URL=http://localhost:5001/api
+    container_name: astroview_client
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      server:
+        condition: service_healthy
+    environment:
+      - NODE_ENV=production
+    networks:
+      - astroview-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  astroview-network:
+    driver: bridge
+
+volumes:
+  mongo_data:

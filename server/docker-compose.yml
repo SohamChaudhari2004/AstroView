@@ -10,6 +10,8 @@ services:
       - "27018:27017"
     volumes:
       - mongo_data:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=astroview
 
   # Redis - Caching & Queues
   redis:
@@ -18,6 +20,40 @@ services:
     restart: always
     ports:
       - "6379:6379"
+
+  # Node.js Server (for local development)
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: astroview_server
+    restart: always
+    ports:
+      - "5001:5001"
+    depends_on:
+      - mongo
+      - redis
+    environment:
+      - NODE_ENV=development
+      - PORT=5001
+      - MONGODB_URI=mongodb://mongo:27017/astroview
+      - REDIS_URL=redis://redis:6379
+      - MISTRAL_API_KEY=${MISTRAL_API_KEY}
+      - NASA_API_KEY=${NASA_API_KEY}
+      - JWT_SECRET=${JWT_SECRET}
+      - FIREBASE_TYPE=${FIREBASE_TYPE}
+      - FIREBASE_PROJECT_ID=${FIREBASE_PROJECT_ID}
+      - FIREBASE_PRIVATE_KEY_ID=${FIREBASE_PRIVATE_KEY_ID}
+      - FIREBASE_PRIVATE_KEY=${FIREBASE_PRIVATE_KEY}
+      - FIREBASE_CLIENT_EMAIL=${FIREBASE_CLIENT_EMAIL}
+      - FIREBASE_CLIENT_ID=${FIREBASE_CLIENT_ID}
+      - FIREBASE_AUTH_URI=${FIREBASE_AUTH_URI}
+      - FIREBASE_TOKEN_URI=${FIREBASE_TOKEN_URI}
+      - FIREBASE_AUTH_PROVIDER_CERT_URL=${FIREBASE_AUTH_PROVIDER_CERT_URL}
+      - FIREBASE_CLIENT_CERT_URL=${FIREBASE_CLIENT_CERT_URL}
+    volumes:
+      - ./src:/app/src
+      - /app/node_modules
 
 volumes:
   mongo_data:
